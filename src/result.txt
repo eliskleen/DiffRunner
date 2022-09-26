@@ -1,0 +1,3 @@
+Företag i lime men inte i anmälningssystemet: 
+Företag i anmälningssystemet men inte i lime: 
+    test
