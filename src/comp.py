@@ -1,6 +1,7 @@
 from pygameInterface import Form
 import os
 from tkinter import filedialog 
+import tkinter as tk
 
 # diffList = open("knownDiffs.txt", "r", encoding="UTF-8").readlines()
 def bothInDiffList(c1, c2, diffList):
@@ -39,7 +40,7 @@ def getDiff(limeFileName, regiFileName, doPrint):
             if doPrint:
                 print("Företag i anmälningssystemet men inte i lime: " + comp)
             resList.append("    " + comp + "\n")
-    return resList
+    return (resList, len(regiComp))
 
 
 def writeResFile(resList):
@@ -55,7 +56,7 @@ def getCompWithStatusLime(status, filename):
 
 def getCompWithStatusRegi(status, filename):
     comp = getFieldOnMatchFromFile(
-        "Application statusNewSaved (not submitted yet)Submitted (not yet accepted)", "Applicant", status, filename)
+        "Application status", "Applicant", status, filename)
     print(type(comp[0]))
     print(comp[0])
     return comp
@@ -69,7 +70,10 @@ def getFieldOnMatchFromFile(matchField, field, matchValue, filename):
     split = ";" if ";" in lines[0] else ","
     headers = lines[0].split(split)
     fieldIndex = headers.index(field)
-    matchIndex = headers.index(matchField)
+    val = filter(lambda h : matchField in h, headers)
+    matchIndex = headers.index(list(val)[0])
+    # matchIndex = headers.find(lambda h : matchField in h)
+    
     for line in lines[1:]:
         if (matchValue in line.split(split)[matchIndex] or line.split(split)[matchIndex] in matchValue):
             comp.append(line.split(split)[fieldIndex])
@@ -80,10 +84,7 @@ def getFieldOnMatchFromFile(matchField, field, matchValue, filename):
 def openFileDialog(prompt):
     file = filedialog.askopenfile(initialdir=os.getcwd,
                                   title=prompt,
-                                  filetypes=(("Csv files",
-                                              "*.csv*"),
-                                             ("all files",
-                                              "*.*")))
+                                  filetypes= [("All Files", "*.*")])
     if file is not None:
         return file.name
     return None
@@ -95,16 +96,21 @@ def runDiff():
     regiFileName = openFileDialog("Välj utraget från anmälningssystemet")
     if regiFileName is None:
         return
-    resList = getDiff(limeFileName, regiFileName, False)
+    (resList, amontSubmitted) = getDiff(limeFileName, regiFileName, False)
+    if(len(resList) == 2):
+        print("Inga skillnader hittades")
+        resList = ["Inga skillnader hittades!! \n" + str(amontSubmitted) + " företag har anmält sig" + "\nBara " + str(160 - amontSubmitted) + " platser kvar!!"]
     writeResFile(resList)   
 
 def updateKnownDiffs():
     f = open("knownDiffs.txt", "a", encoding="UTF-8")
     
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
+    root = tk.Tk()
     form = Form(runDiff)
+    root.destroy()
     form.load()
 
     # limeFileName = openFileDialog("Välj Lime utdraget")
