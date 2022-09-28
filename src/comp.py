@@ -3,17 +3,21 @@ import os
 from tkinter import filedialog 
 import tkinter as tk
 
-# diffList = open("knownDiffs.txt", "r", encoding="UTF-8").readlines()
+# diffList = open("knownDiffs.txt", "r", encoding="ISO 8859-1").readlines()
 def bothInDiffList(c1, c2, diffList):
     for c in diffList:
+        c = c.lower()
         if (c1 in c) and (c2 in c):
             return True
     return False
 
 def compInList(comp, list):
+    comp = comp.lower()
     diffList = open("knownDiffs.txt", "r", encoding="UTF-8").readlines()
     for l in list:
-        if (comp.lower() in l.lower()) or (l.lower() in comp.lower()) or (bothInDiffList(comp, l, diffList)):
+        l = l.lower()
+        # if (comp. in l) or (l.lower() in comp.lower()) or (bothInDiffList(comp, l, diffList)):
+        if(comp in l) or (l in comp) or (bothInDiffList(comp, l, diffList)):
             return True
     return False
 
@@ -21,11 +25,14 @@ def compInList(comp, list):
 def getDiff(limeFileName, regiFileName, doPrint):
 
     limeComp = []
-    for status in open("statusInLime.txt", "r", encoding="UTF-8").read().split(","):
+    for status in open("statusInLime.txt", "r", encoding="ISO 8859-1").read().split(","):
         limeComp += getCompWithStatusLime(str(status), limeFileName)
     print(len(limeComp))
+    # print(limeComp)
     regiComp = []
     regiComp += getCompWithStatusRegi("Submitted (not yet accepted)", regiFileName)
+    print(len(regiComp))
+    print(regiComp)
 
     resList = ["Företag i lime men inte i anmälningssystemet: \n"]
     for comp in limeComp:
@@ -50,7 +57,7 @@ def writeResFile(resList):
 
 def getCompWithStatusLime(status, filename):
     comp = getFieldOnMatchFromFile(
-        "status_label", "customer_name", status, filename)
+        "status_label", "customer_name", status, filename, enc="ISO 8859-1")
     return comp
 
 
@@ -62,10 +69,14 @@ def getCompWithStatusRegi(status, filename):
     return comp
 
 
-def getFieldOnMatchFromFile(matchField, field, matchValue, filename):
+def getFieldOnMatchFromFile(matchField, field, matchValue, filename, enc="UTF-8"):
     lines = []
-    for l in open(filename).readlines():
-        lines.append(l.replace("�", "å").replace("\"", "").replace("Ã¶", "ö").replace("Ã¥", "å").replace("Ã¤", "ä"))
+    for l in open(filename, encoding=enc).readlines():
+        # lines.append(l.replace("�", "å").replace("\"", "").replace("Ã¶", "ö").replace("Ã¥", "å").replace("Ã¤", "ä"))
+        lines.append(str(l.replace("\"", "").encode("utf-8")).
+                            replace("\\xc3\\xb6", "ö").
+                            replace("\\xc3\\xa5", "å").
+                            replace("\\xc3\\xa4", "ä"))
     comp = []
     split = ";" if ";" in lines[0] else ","
     headers = lines[0].split(split)
@@ -109,6 +120,9 @@ def updateKnownDiffs():
 
 if __name__ == "__main__":
     root = tk.Tk()
+    # print("HEHEHE")
+    
+    # exit()
     form = Form(runDiff)
     root.destroy()
     form.load()
