@@ -30,7 +30,8 @@ def getDiff(limeFileName, regiFileName, doPrint):
     print(len(limeComp))
     # print(limeComp)
     regiComp = []
-    regiComp += getCompWithStatusRegi("Submitted (not yet accepted)", regiFileName)
+    # regiComp += getCompWithStatusRegi("Submitted (not yet accepted)", regiFileName)
+    regiComp += getCompWithStatusRegi("Accepted", regiFileName)
     print(len(regiComp))
     print(regiComp)
 
@@ -77,6 +78,7 @@ def getFieldOnMatchFromFile(matchField, field, matchValue, filename, enc="UTF-8"
                             replace("\\xc3\\xb6", "ö").
                             replace("\\xc3\\xa5", "å").
                             replace("\\xc3\\xa4", "ä"))
+    print(lines)
     comp = []
     split = ";" if ";" in lines[0] else ","
     headers = lines[0].split(split)

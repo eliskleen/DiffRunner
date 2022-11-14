@@ -1,3 +1,115 @@
-Inga skillnader hittades!! 
-66 företag har anmält sig
-Bara 94 platser kvar!!
+Företag i lime men inte i anmälningssystemet: 
+Företag i anmälningssystemet men inte i lime: 
+    Aarsleff Ground Engineering AB
+    Academic Work
+    AFRY
+    Agreat AB
+    Aptiv Contract Services
+    Aros Electronics AB
+    ASSA ABLOY
+    AstraZeneca
+    Aurobay Powertrain Engineering
+    B&R Industrial Automation AB
+    BERG Propulsion
+    Beyond Gravity
+    Borealis AB
+    Borås Energi och Miljö
+    Broccoli Engineering AB
+    CANEA Partner Group
+    Capgemini Sverige AB
+    Centiro Solutions AB
+    CEVT
+    Chalmers forskarutbildning
+    Cobham Gaisler
+    Coherent
+    Collector Bank
+    Combine AB
+    Combitech AB
+    Consat Engineering AB
+    Consilium Marine & Safety AB
+    COWI AB
+    CPAC Systems AB
+    Derome
+    Diadrom
+    Easy-Laser AB
+    EasyMining
+    EDAG Engineering
+    Egnahemsbolaget
+    Einride AB
+    Emerson
+    ESAB AB
+    Essity
+    Etteplan
+    Eurocon Consulting AB
+    Expleo Technology Nordic AB
+    Exsitec
+    Framtiden AB
+    FS Dynamics
+    GE Additive
+    GKN Aerospace Engine Systems
+    Göteborg Energi
+    HaloSep AB
+    Helo
+    HiQ Göteborg
+    Hitachi Energy
+    Husqvarna Group
+    iconworks
+    IKEA of sweden AB
+    Industrial Path Solutions
+    Infotiv
+    Intility
+    IVL Svenska Miljöinstitutet
+    Klimator AB
+    Kollmorgen Automation AB
+    Lime Technologies Sweden AB
+    Lumibird Photonics Sweden AB
+    Massive Entertainment
+    MCA Sweden
+    Meridion AB
+    Monocl AB
+    Mpya Sci & Tech
+    Nexans Sweden AB
+    Nexer
+    NKT
+    Ocean Infinity AB
+    Ongoing Warehouse AB
+    PE Teknik & Arkitektur
+    PERI
+    Perstorp Holding AB
+    Plasman AB
+    Port of Gothenburg
+    Pulsen Group
+    Random Forest West AB
+    Randstad
+    RISE Research Institutes of Sweden
+    Saab AB
+    Schlumberger
+    Semcon
+    Sigholm Tech AB
+    SJ AB
+    Skill
+    Smart Eye AB
+    Sogeti Sverige AB
+    Sopra Steria
+    Stena Recycling
+    Stena Rederi AB
+    Stendahls
+    Sveriges Ingenjörer
+    Sweco
+    Swedish Match North Europ\xc3\xa9 AB
+    Swegon Group AB
+    Swisslog AB
+    Syntronic Research and Development
+    Södra Skogsägarna
+    Technity Engineering AB
+    Tetra Pak
+    TFIP
+    Thomas Concrete Group AB
+    Thorlabs Sweden AB
+    Toyota Material Handling Logistics Solutions AB
+    Unfors Raysafe
+    Unionen
+    Vattenfall
+    Vector Sweden
+    Worley Sverige AB
+    Xamera AB

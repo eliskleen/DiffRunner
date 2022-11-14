@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<script>
+    window.onload = function () {
+        document.getElementById('buttonid').addEventListener('click', openDialog);
+    }
+    function openDialog() {
+        var f = document.getElementById('fileid');
+        f.click();
+        var fileName= f.datafile.value;   
+
+    }
+
+</script>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>My First Bootstrap Page</h1>
+                <p>This is some text.</p>
+            </div>
+        </div>
+        <input id='fileid' type='file' hidden />
+        <input id='buttonid' type='button' value='Upload MB' />
+    </div>
+
+</html>
